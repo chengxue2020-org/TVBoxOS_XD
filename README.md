@@ -11,4 +11,4 @@ This repo relies on the following third-party projects:
 - [takagen99/Box](https://github.com/takagen99/Box) (Updated: 5de46823416f5cf02e8c53e6bddc7e73a0c73982)
 - [FongMi/TV](https://github.com/FongMi/TV) (Updated: 6cb4fc0b9aa3c2a272dbc5675fc4cf8379847a05)
 - [chengxue2020-org/TVBoxOS_XD](https://github.com/chengxue2020-org/TVBoxOS_XD) (Updated: ef3a94ccd4fd6119a9740e3f3acf94c497783f8d)
-- [muxd93/TVBox_takagen99](https://github.com/muxd93/TVBox_takagen99) (Updated: 9763a236b3d12c4ac5ee7f4345a9f7a4da3a5b37)
+- [muxd93/TVBox_takagen99](https://github.com/muxd93/TVBox_takagen99) (Updated: 4256fd6b46ceb44cd57a3d0db5741caa42397c0d)
