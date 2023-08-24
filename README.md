@@ -8,7 +8,7 @@ This repo relies on the following third-party projects:
 - [CatVodTVOfficial/TVBoxOSC](https://github.com/CatVodTVOfficial/TVBoxOSC)
 - [o0HalfLife0o/TVBoxOSC](https://github.com/o0HalfLife0o/TVBoxOSC/releases)
 - [q215613905/TVBoxOS](https://github.com/q215613905/TVBoxOS) (Updated: 16a3217af8ba57a05c6d7230216319b750413f6a)
-- [takagen99/Box](https://github.com/takagen99/Box) (Updated: 5de46823416f5cf02e8c53e6bddc7e73a0c73982)
+- [takagen99/Box](https://github.com/takagen99/Box) (Updated: 4256fd6b46ceb44cd57a3d0db5741caa42397c0d)
 - [FongMi/TV](https://github.com/FongMi/TV) (Updated: 6cb4fc0b9aa3c2a272dbc5675fc4cf8379847a05)
 - [chengxue2020-org/TVBoxOS_XD](https://github.com/chengxue2020-org/TVBoxOS_XD) (Updated: ef3a94ccd4fd6119a9740e3f3acf94c497783f8d)
 - [muxd93/TVBox_takagen99](https://github.com/muxd93/TVBox_takagen99) (Updated: 4256fd6b46ceb44cd57a3d0db5741caa42397c0d)
