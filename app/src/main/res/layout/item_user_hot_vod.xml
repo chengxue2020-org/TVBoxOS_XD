@@ -81,7 +81,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/ts_22" />
         </LinearLayout>
-        
+
         <FrameLayout
             android:id="@+id/delFrameLayout"
             android:layout_width="match_parent"
@@ -99,6 +99,6 @@
                 android:src="@drawable/icon_delete" />
 
         </FrameLayout>
-        
+
     </FrameLayout>
 </FrameLayout>
