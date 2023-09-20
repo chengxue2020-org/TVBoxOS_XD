@@ -385,7 +385,8 @@ public class PlayFragment extends BaseLazyFragment {
             @Override
             public void updateTimer(DanmakuTimer timer) {
                 if (Math.abs(mVideoView.getSpeed()) - 1.0 > 1e-6) {
-                    timer.add((long) (timer.lastInterval() * (mVideoView.getSpeed() - 1)));
+                    timer.update(mVideoView.getCurrentPosition());
+//                    timer.add((long) (timer.lastInterval() * (mVideoView.getSpeed() - 1)));
                 }
             }
 
@@ -402,6 +403,10 @@ public class PlayFragment extends BaseLazyFragment {
     }
 
     public void initLiveDanmu(){
+        if(danmakuView != null){
+            danmakuView.release();
+            danmakuView = null;
+        }
         danmakuParser = new BaseDanmakuParser() {
             @Override
             protected IDanmakus parse() {
@@ -418,7 +423,14 @@ public class PlayFragment extends BaseLazyFragment {
             }
 
             @Override
-            public void updateTimer(DanmakuTimer danmakuTimer) {
+            public void updateTimer(DanmakuTimer timer) {
+//                if(Math.abs(mVideoView.getCurrentPosition() - danmakuView.getCurrentTime())>3 * 1000){
+//                    danmakuView.seekTo(mVideoView.getCurrentPosition());
+//                }
+                if (Math.abs(mVideoView.getSpeed()) - 1.0 > 1e-6) {
+                    timer.update(mVideoView.getCurrentPosition());
+//                    timer.add((long) (timer.lastInterval() * (mVideoView.getSpeed() - 1)));
+                }
             }
 
             @Override
@@ -1133,7 +1145,7 @@ public class PlayFragment extends BaseLazyFragment {
                                 JsonObject danmuBaseInfo = new Gson().fromJson(response, JsonObject.class);
                                 JsonObject segmentIndex = danmuBaseInfo.getAsJsonObject("segment_index");
                                 for (String key : segmentIndex.keySet()) {
-                                    String danmuUrl = "https://dm.video.qq.com/barrage/segment/" + qqVid + "/" + segmentIndex.getAsJsonObject(key).get("segment_name").getAsString();
+                                        String danmuUrl = "https://dm.video.qq.com/barrage/segment/" + qqVid + "/" + segmentIndex.getAsJsonObject(key).get("segment_name").getAsString();
                                     UrlHttpUtil.syncGet(danmuUrl, new CallBackUtil.CallBackString() {
                                         @Override
                                         public void onFailure(int code, String errorMessage) {

@@ -64,16 +64,24 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
             //由于部分电视机使用glide报错
             if (!TextUtils.isEmpty(item.pic)) {
                 item.pic=item.pic.trim();
-                Picasso.get()
-                        .load(DefaultConfig.checkReplaceProxy(item.pic))
-                        .transform(new RoundTransformation(MD5.string2MD5(item.pic))
-                                .centerCorp(true)
-                                .override(AutoSizeUtils.mm2px(mContext, 240), AutoSizeUtils.mm2px(mContext, 320))
-                                .roundRadius(AutoSizeUtils.mm2px(mContext, 10), RoundTransformation.RoundType.ALL))
-                        .placeholder(R.drawable.img_loading_placeholder)
-                        .noFade()
-//                        .error(R.drawable.img_loading_placeholder)
-                        .into(ivThumb);
+                if (item.sourceKey != null && item.sourceKey.contains("py_bili")) {
+                    Picasso.get()
+                            .load(DefaultConfig.checkReplaceProxy(item.pic))
+                            .transform(transformation)
+                            .placeholder(R.drawable.img_loading_placeholder)
+                            .error(R.drawable.img_loading_placeholder)
+                            .into(ivThumb);
+                }else {
+                    Picasso.get()
+                            .load(DefaultConfig.checkReplaceProxy(item.pic))
+                            .transform(new RoundTransformation(MD5.string2MD5(item.pic + "position=" + helper.getLayoutPosition()))
+                                    .centerCorp(true)
+                                    .override(AutoSizeUtils.mm2px(mContext, 300), AutoSizeUtils.mm2px(mContext, 400))
+                                    .roundRadius(AutoSizeUtils.mm2px(mContext, 10), RoundTransformation.RoundType.ALL))
+                            .placeholder(R.drawable.img_loading_placeholder)
+                            .error(R.drawable.img_loading_placeholder)
+                            .into(ivThumb);
+                }
             } else {
                 ivThumb.setImageResource(R.drawable.img_loading_placeholder);
             }
@@ -115,16 +123,24 @@ public class GridAdapter extends BaseQuickAdapter<Movie.Video, BaseViewHolder> {
         //由于部分电视机使用glide报错
         if (!TextUtils.isEmpty(item.pic)) {
             item.pic=item.pic.trim();
-            Picasso.get()
-                    .load(DefaultConfig.checkReplaceProxy(item.pic))
-                    .transform(new RoundTransformation(MD5.string2MD5(item.pic))
-                            .centerCorp(true)
-                            .override(AutoSizeUtils.mm2px(mContext, 240), AutoSizeUtils.mm2px(mContext, 320))
-                            .roundRadius(AutoSizeUtils.mm2px(mContext, 10), RoundTransformation.RoundType.ALL))
-                    .placeholder(R.drawable.img_loading_placeholder)
-                    .noFade()
-//                    .error(R.drawable.img_loading_placeholder)
-                    .into(ivThumb);
+            if (item.sourceKey != null && item.sourceKey.contains("py_bili")) {
+                Picasso.get()
+                        .load(DefaultConfig.checkReplaceProxy(item.pic))
+                        .transform(transformation)
+                        .placeholder(R.drawable.img_loading_placeholder)
+                        .error(R.drawable.img_loading_placeholder)
+                        .into(ivThumb);
+            }else {
+                Picasso.get()
+                        .load(DefaultConfig.checkReplaceProxy(item.pic))
+                        .transform(new RoundTransformation(MD5.string2MD5(item.pic))
+                                .centerCorp(true)
+                                .override(AutoSizeUtils.mm2px(mContext, 240), AutoSizeUtils.mm2px(mContext, 320))
+                                .roundRadius(AutoSizeUtils.mm2px(mContext, 10), RoundTransformation.RoundType.ALL))
+                        .placeholder(R.drawable.img_loading_placeholder)
+                        .noFade()
+                        .into(ivThumb);
+            }
         } else {
             ivThumb.setImageResource(R.drawable.img_loading_placeholder);
         }
