@@ -1,4 +1,4 @@
-name: Auto Build upsteam
+name: Auto Build watson-Box
 
 on:
   schedule:
@@ -15,9 +15,9 @@ jobs:
           fetch-depth: 0
       - name: Check New Commit
         run: |
-          upstreamCode=https://github.com/q215613905/TVBoxOS
+          upstreamCode=https://github.com/watson1982/Box1
           echo "upstreamCode=$upstreamCode" >> $GITHUB_ENV
-          commit=$(curl -sL $upstreamCode/commits/main |grep -o '/q215613905/TVBoxOS/commit/[a-z0-9]\+' |head -1 | cut -d\/ -f5)
+          commit=$(curl -sL $upstreamCode/commits/main |grep -o '/watson1982/Box1/commit/[a-z0-9]\+' |head -1 | cut -d\/ -f5)
           if ! git log --oneline |grep -q "$commit"; then
             echo "commit=$commit" >> $GITHUB_ENV
             echo "commitS=${commit:0:7}" >> $GITHUB_ENV
@@ -65,10 +65,10 @@ jobs:
           rm -rf apk/
           mkdir -p apk/
           for file in `find ~ -name "*release*.apk" -print`; do
-            mv "$file" apk/TVBox_q215613905-ori_${{ env.tag }}_Release.apk
+            mv "$file" apk/TVBox_watson_Box1_${{ env.tag }}_Release.apk
           done
           for file in `find ~ -name "*debug*.apk" -print`; do
-            mv "$file" apk/TVBox_q215613905-ori_${{ env.tag }}_Debug.apk
+            mv "$file" apk/TVBox_watson_Box1_${{ env.tag }}_Debug.apk
           done
         
       - name: Release and Upload Assets
