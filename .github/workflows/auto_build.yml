@@ -31,9 +31,6 @@ jobs:
           - userName: XiaoRanLiu3119
             repoName: TVBoxOS-Mobile
             branchName: main
-          - userName: watson1982
-            repoName: Box1
-            branchName: main
 
 
     steps:
