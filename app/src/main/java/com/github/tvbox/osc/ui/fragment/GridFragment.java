@@ -53,6 +53,7 @@ public class GridFragment extends BaseLazyFragment {
     private boolean isLoad = false;
     private boolean isTop = true;
     private View focusedView = null;
+    private String default_sourceKey = null;
     private class GridInfo{
         public String sortID="";
         public TvRecyclerView mGridView;
@@ -171,7 +172,7 @@ public class GridFragment extends BaseLazyFragment {
             @Override
             public void onLoadMoreRequested() {
                 gridAdapter.setEnableLoadMore(true);
-                sourceViewModel.getList(sortData, page);
+                sourceViewModel.getList(sortData, page, default_sourceKey);
             }
         }, mGridView);
         mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
@@ -297,7 +298,7 @@ public class GridFragment extends BaseLazyFragment {
         isLoad = false;
         scrollTop();
         toggleFilterColor();
-        sourceViewModel.getList(sortData, page);
+        sourceViewModel.getList(sortData, page, default_sourceKey);
     }
 
     private void toggleFilterColor() {

@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.multidex.MultiDexApplication;
 
 import com.github.tvbox.osc.BuildConfig;
+import com.github.catvod.crawler.JsLoader;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.bean.VodInfo;
 import com.github.tvbox.osc.callback.EmptyCallback;
@@ -19,7 +20,7 @@ import com.github.tvbox.osc.util.LogUtil;
 import com.github.tvbox.osc.util.LocaleHelper;
 import com.github.tvbox.osc.util.OkGoHelper;
 import com.github.tvbox.osc.util.PlayerHelper;
-import com.github.tvbox.osc.util.js.JSEngine;
+
 import com.kingja.loadsir.core.LoadSir;
 import com.orhanobut.hawk.Hawk;
 import com.p2p.P2PClass;
@@ -28,6 +29,7 @@ import com.undcover.freedom.pyramid.PythonLoader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import com.whl.quickjs.android.QuickJSLoader;
 
 import me.jessyan.autosize.AutoSizeConfig;
 import me.jessyan.autosize.unit.Subunits;
@@ -73,7 +75,7 @@ public class App extends MultiDexApplication {
                 .setSupportSP(false)
                 .setSupportSubunits(Subunits.MM);
         PlayerHelper.init();
-        JSEngine.getInstance().create();
+        QuickJSLoader.init();
         FileUtils.cleanPlayerCache();
         PythonLoader.getInstance().setApplication(this);
     }
@@ -122,7 +124,7 @@ public class App extends MultiDexApplication {
     @Override
     public void onTerminate() {
         super.onTerminate();
-        JSEngine.getInstance().destroy();
+        JsLoader.load();
     }
 
     public VodInfo getVodInfo() {
