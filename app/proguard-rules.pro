@@ -216,7 +216,7 @@
 # magnet：解决模拟器推送 磁力链接 闪退
 -keep class com.xunlei.downloadlib.** {*;}
 # quickjs引擎
--keep class com.github.tvbox.quickjs.** {*;}
+-keep class com.whl.quickjs.** {*;}
 # 支持影视的ali相关的jar
 -keep class com.google.gson.**{*;}
 
@@ -234,4 +234,3 @@
     public static **[] values();
     public static ** valueOf(java.lang.String);
 }
-
